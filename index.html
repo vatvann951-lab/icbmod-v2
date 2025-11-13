@@ -73,15 +73,15 @@
     .buy-btn{background:var(--green);color:#000;box-shadow:0 0 12px var(--green)}
     .detail-btn{background:var(--cyan);color:#000;box-shadow:0 0 12px var(--cyan)}
     .detail-box{
-      display:none;background:rgba(0,0,0,0.85);
-      border-radius:12px;padding:18px;margin-top:12px;
-      box-shadow:0 0 20px rgba(0,0,0,0.6);
+      display:none;background:rgba(255,255,255,0.05);
+      border-radius:12px;padding:14px;margin-top:12px;
+      box-shadow:0 0 12px rgba(0,255,255,0.15);
       text-align:left;max-width:640px;margin-left:auto;margin-right:auto;
-      color:#fff; animation:fadeIn .25s ease; z-index:2000;
+      animation:fadeIn .25s ease;
     }
-    .detail-box h2{text-align:center;color:#fff;margin:4px 0 8px}
+    .detail-box h2{text-align:center;color:var(--cyan);text-shadow:0 0 10px var(--cyan);margin:4px 0 8px}
     .detail-box p,.detail-box ol,.detail-box ul{
-      color:#e6ffff;line-height:1.7;font-size:15px;
+      color:#e0ffff;line-height:1.7;font-size:15px;
     }
     .back-btn{
       display:block;margin:12px auto 0;padding:8px 16px;
@@ -99,40 +99,7 @@
       background:#fff;box-shadow:0 0 10px rgba(255,255,255,0.2);transition:.18s;
     }
     .social-bar img{width:22px;height:22px;border-radius:50%}
-    /* New Car Parking black panel style */
-    .car-panel{
-      background:#000;border-radius:14px;padding:18px;max-width:420px;margin:18px auto;
-      box-shadow:0 8px 30px rgba(0,0,0,0.6), inset 0 0 20px rgba(255,255,255,0.03);
-      color:#fff;text-align:center;
-    }
-    .car-title{
-      font-size:20px;font-weight:bold;color:#fff;text-shadow:0 0 8px rgba(255,255,255,0.12);
-      margin-bottom:8px;
-    }
-    .car-sub{color:#dfe;opacity:0.9;margin-bottom:12px}
-    .car-buy{background:#000;color:#fff;border:2px solid #fff;padding:12px 24px;border-radius:10px;
-      box-shadow:0 6px 20px rgba(0,0,0,0.6),0 0 20px rgba(255,255,255,0.06);font-weight:bold;cursor:pointer;}
-    .car-free{
-      display:block;background:#00ff99;color:#000;padding:12px 24px;border-radius:10px;margin:12px auto 0;
-      width:140px;font-weight:bold;box-shadow:0 0 18px rgba(0,255,153,0.2);border:none;cursor:pointer;
-    }
-    .account-list{background:rgba(255,255,255,0.03);padding:12px;border-radius:8px;margin-top:10px;}
-    .account-item{padding:8px;border-bottom:1px dashed rgba(255,255,255,0.06)}
-    .account-item:last-child{border-bottom:none}
     @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-    /* modal overlay for details */
-    .overlay{
-      display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1500;
-      align-items:center;justify-content:center;padding:20px;
-    }
-    .modal{
-      background:#071022;border-radius:12px;padding:18px;max-width:720px;width:100%;color:#fff;
-      box-shadow:0 10px 40px rgba(0,0,0,0.7);
-    }
-    .modal h3{margin-top:0;color:var(--cyan)}
-    .modal .close{float:right;background:transparent;border:none;color:#fff;font-size:18px;cursor:pointer}
-    .price-row{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:8px}
-    .price-tag{background:#000;padding:10px 14px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.6);font-weight:bold}
   </style>
 </head>
 <body>
@@ -156,52 +123,7 @@
   <div id="resultBox" style="margin-top:10px;display:none;color:var(--cyan);font-weight:bold"></div>
 </div>
 
-<!-- ============ NEW: Car Parking Section (black panel) ============ -->
-<div class="car-panel">
-  <div class="car-title">Acc Car Parking</div>
-  <div class="car-sub">Car Parking Multiplayer Accounts</div>
-
-  <div class="btn-group" style="justify-content:center">
-    <a href="https://t.me/vanndavt" target="_blank"><button class="car-buy" title="Buy via Telegram">Buy</button></a>
-    <button class="detail-btn" onclick="openModal('carModal')">លម្អិត</button>
-  </div>
-
-  <!-- Optional small free button (if you still want a 'free' button) -->
-  <button class="car-free" onclick="openModal('carModal')">ចុចយក</button>
-</div>
-
-<!-- Modal overlay for car details -->
-<div id="carModalOverlay" class="overlay" onclick="closeModal('carModalOverlay')">
-  <div class="modal" onclick="event.stopPropagation()">
-    <button class="close" onclick="closeModal('carModalOverlay')">✕</button>
-    <h3>ដាក់លម្អិត — Car Parking Accounts</h3>
-    <p>ដាកលុយ Car parking តម្លៃ <strong>$2</strong></p>
-
-    <div class="price-row">
-      <div>កាក់ (Bal):</div>
-      <div class="price-tag">5,000,000</div>
-    </div>
-    <div class="price-row">
-      <div>កាក (Coins):</div>
-      <div class="price-tag">30,000</div>
-    </div>
-
-    <p style="margin-top:12px;color:#dfe">បញ្ជីអ៊ីមែល និងលេខសំងាត់ (ខាងក្រោម) — សូមចុច Account ដែលអ្នកចង់យក ហើយឆាត់មក <b>@vanndavt</b> ដើម្បីទទួលបាន:</p>
-
-    <div class="account-list">
-      <div class="account-item"><strong>Icbn715@gmail.com</strong><div>លេខសំងាត់: 71547154663</div></div>
-      <div class="account-item"><strong>Vat708@gmail.com</strong><div>លេខសំងាត់: 7254743164</div></div>
-      <div class="account-item"><strong>Vat123@gmail.com</strong><div>លេខសំងាត់: 826475765</div></div>
-      <div class="account-item"><strong>Vat234@gmail.com</strong><div>លេខសំងាត់: 7255725566</div></div>
-    </div>
-
-    <p style="margin-top:12px;color:#fff;font-weight:bold">វិធីទូទាត់៖ $2 (អាចចុច Buy ដើម្បីផ្ញើសំណើ)</p>
-
-    <button class="back-btn" onclick="closeModal('carModalOverlay')">បិទ</button>
-  </div>
-</div>
-
-<!-- ============ SECTION LIST (existing items) ============ -->
+<!-- ============ SECTION LIST ============ -->
 
 <!-- UDID -->
 <div class="section">
@@ -225,7 +147,6 @@
   </div>
 </div>
 
-<!-- (rest of sections unchanged...) -->
 <!-- GTA -->
 <div class="section">
   <div class="panel">GTA San Andreas</div>
@@ -267,12 +188,12 @@
   <div id="esignBox" class="detail-box">
     <h2>លម្អិតពី E-Sign</h2>
     <ul>
-      <li>7 ខែ — 8$</li>
-      <li>8 ខែ — 9$</li>
-      <li>9 ខែ — 10$</li>
-      <li>10 ខែ — 13$</li>
-      <li>11 ខែ — 15$</li>
-      <li>12 ខែ — 25$</li>
+      <li>7 ខែ -- 8$</li>
+      <li>8 ខែ -- 9$</li>
+      <li>9 ខែ -- 10$</li>
+      <li>10 ខែ -- 13$</li>
+      <li>11 ខែ -- 15$</li>
+      <li>12 ខែ -- 25$</li>
     </ul>
     <p>App មានសុវត្ថិភាព ប្រើងាយ មានវីដេអូបង្រៀនពេញៗ អាច Hack ហ្គេមបាន (តែត្រូវមាន IPA)។ សូមឆាតមកកាន់ <b>@vanndavt</b> ដើម្បីទិញ និងសួរបន្ថែម។</p>
     <button class="back-btn" onclick="toggleDetail('esignBox')">បិទលម្អិត</button>
@@ -289,7 +210,7 @@
   </div>
   <div id="ffBox" class="detail-box">
     <h2>លម្អិតពី Mod FF</h2>
-    <p>មួយថ្ងៃ — 5$<br>មួយអាទិត្យ — 15$<br>មួយខែ — 25$</p>
+    <p>មួយថ្ងៃ -- 5$<br>មួយអាទិត្យ -- 15$<br>មួយខែ -- 25$</p>
     <p>ធានាបានត្រឹម 90% ខ្ញុំបានសាកល្បងមួយខែហើយលេងបានល្អ មានសុវត្ថិភាព។ សូមឆាតមកកាន់ <b>@vanndavt</b> ដើម្បីទិញវា។</p>
     <button class="back-btn" onclick="toggleDetail('ffBox')">បិទលម្អិត</button>
   </div>
@@ -305,9 +226,29 @@
   </div>
   <div id="mlBox" class="detail-box">
     <h2>លម្អិតពី Mobile Legend</h2>
-    <p>មួយថ្ងៃ — 5$<br>មួយអាទិត្យ — 15$<br>មួយខែ — 25$</p>
+    <p>មួយថ្ងៃ -- 5$<br>មួយអាទិត្យ -- 15$<br>មួយខែ -- 25$</p>
     <p>ធានាបានត្រឹម 97% ខ្ញុំបានលេងជារៀងរាល់ថ្ងៃ មិនទាន់ជាប់អីទេ។ សូមឆាតមកកាន់ <b>@vanndavt</b> ដើម្បីទិញវា។</p>
     <button class="back-btn" onclick="toggleDetail('mlBox')">បិទលម្អិត</button>
+  </div>
+</div>
+
+<!-- Car Parking Free -->
+<div class="section">
+  <div class="panel">Acc Car Parking Free</div>
+  <div class="section-text">Account Car Parking Multiplayer</div>
+  <div class="btn-group">
+    <button class="buy-btn" onclick="toggleDetail('carParkingBox')">ចុចយក</button>
+  </div>
+  <div id="carParkingBox" class="detail-box">
+    <h2>Acc Car Parking Free 🎮</h2>
+    <p><b>Email:</b> Vat1204@gmail.com<br><b>Password:</b> 72546164661</p>
+    <hr>
+    <p><b>Email:</b> No acc<br><b>Password:</b> No acc</p>
+    <hr>
+    <p><b>Email:</b> No acc<br><b>Password:</b> No acc</p>
+    <hr>
+    <p><b>Email:</b> No acc<br><b>Password:</b> No acc</p>
+    <button class="back-btn" onclick="toggleDetail('carParkingBox')">បិទ</button>
   </div>
 </div>
 
@@ -320,7 +261,7 @@
   </div>
 </div>
 
-<!-- ============ SCRIPTS ============ -->
+<!-- ============ SCRIPT ============ -->
 <script>
 function calculate(){
   const input=document.getElementById("startTime").value;
@@ -347,17 +288,6 @@ function toggleMode(){
   document.body.classList.toggle("light");
   const btn=document.querySelector(".mode-btn");
   btn.textContent=document.body.classList.contains("light")?"🌙 Dark":"☀️ Light";
-}
-/* modal helpers */
-function openModal(id){
-  if(id === 'carModal') id = 'carModalOverlay';
-  const el = document.getElementById(id);
-  if(el){ el.style.display = 'flex'; el.style.alignItems = 'center'; el.style.justifyContent = 'center'; }
-}
-function closeModal(id){
-  if(id === 'carModal') id = 'carModalOverlay';
-  const el = document.getElementById(id);
-  if(el){ el.style.display = 'none'; }
 }
 </script>
 
